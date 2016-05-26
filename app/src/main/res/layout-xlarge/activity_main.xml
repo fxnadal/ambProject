@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fxapp.ambstudio.MainActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:name="com.fxapp.ambstudio.MenuFragment"
+            android:id="@+id/fragmentL1"
+            tools:layout="@layout/fragment_menu" />
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fragment_container_main"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
