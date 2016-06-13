@@ -1,0 +1,204 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:nestedScrollingEnabled="true"
+    android:visibility="visible"
+    android:layoutMode="opticalBounds">
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/FRAGMENT_INFORME"
+    tools:context="com.fxapp.ambstudio.InformeFragment"
+    android:nestedScrollingEnabled="false"
+    android:minHeight="500dp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INFORME DE OBRA:"
+        android:id="@+id/txtTitle"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nº de obra:"
+        android:id="@+id/textView99"
+        android:layout_below="@+id/txtTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeNumObra"
+        android:layout_alignTop="@+id/textView99"
+        android:layout_toEndOf="@+id/textView99"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora fin:"
+        android:id="@+id/textView5"
+        android:textSize="25dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_marginTop="30dp"
+        android:textColor="#000000"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeHoraFin"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha obra:"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView99"
+        android:layout_alignStart="@+id/textView99"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeFechaObra"
+        android:layout_alignTop="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trabajador:"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeTrabajador"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_toEndOf="@+id/textView9"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duracion aprox:"
+        android:id="@+id/textView11"
+        android:layout_below="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeDuracion"
+        android:layout_alignTop="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora inicio:"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/textView11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_marginTop="30dp"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeHoraInicio"
+        android:layout_alignTop="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Localización:"
+        android:id="@+id/textView4"
+        android:textSize="25dp"
+        android:layout_marginTop="30dp"
+        android:textColor="#000000"
+        android:nestedScrollingEnabled="false"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="..."
+        android:id="@+id/tVInformeLocalizacion"
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
+
+</RelativeLayout>
+</ScrollView>

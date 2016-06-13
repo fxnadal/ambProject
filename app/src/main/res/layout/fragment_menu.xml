@@ -8,7 +8,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boton2"
+        android:text="Crear informe de obra"
         android:id="@+id/bMenu2"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -16,7 +16,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boton1"
+        android:text="Lista"
         android:id="@+id/bMenu1"
         android:layout_above="@+id/bMenu2"
         android:layout_centerHorizontal="true"
@@ -25,7 +25,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boton3"
+        android:text="BOTON LIBRE!"
         android:id="@+id/bMenu3"
         android:layout_below="@+id/bMenu2"
         android:layout_centerHorizontal="true"
