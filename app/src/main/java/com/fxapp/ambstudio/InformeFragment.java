@@ -1,5 +1,6 @@
 package com.fxapp.ambstudio;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +30,13 @@ public class InformeFragment extends Fragment {
     private String textHoraInicio;
     private String textHoraFin;
 
+    TextView tViewTrabajador;
+    TextView tViewFecha;
+    TextView tViewDuracion;
+    TextView tViewNumObra;
+    TextView tViewLocalizacion;
+    TextView tViewHoraInicio;
+    TextView tViewHoraFin;
 
 
     public static InformeFragment newInstance(String trabajador, String numObra, String fechaObra, String duracion, String localizaacion, String horaInicio, String horaFin) {
@@ -65,6 +73,7 @@ public class InformeFragment extends Fragment {
             textHoraFin= getArguments().getString(ARG_HORA_FIN);
 
         }
+        System.out.println(textNumObra+" - "+textTrabajador+" - "+textFecha+" - "+textDuracion+" - "+textLocalizacion+" - "+textHoraInicio+" - "+textHoraFin);
     }
 
     @Override/**/
@@ -73,23 +82,25 @@ public class InformeFragment extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_informe, container, false);
 
-        TextView tViewTrabajador = (TextView) getActivity().findViewById(R.id.tVInformeTrabajador);
-        TextView tViewFecha = (TextView) getActivity().findViewById(R.id.tVInformeFechaObra);
-        TextView tViewDuracion = (TextView) getActivity().findViewById(R.id.tVInformeDuracion);
-        TextView tViewNumObra = (TextView) getActivity().findViewById(R.id.tVInformeNumObra);
-        TextView tViewLocalizacion = (TextView) getActivity().findViewById(R.id.tVInformeLocalizacion);
-        TextView tViewHoraInicio = (TextView) getActivity().findViewById(R.id.tVInformeHoraInicio);
-        TextView tViewHoraFin = (TextView) getActivity().findViewById(R.id.tVInformeHoraFin);
-        //Recogemos los args
-         /*/
-        textTrabajador = getArguments().getString("") ;
-        textFecha = getArguments().getString("") ;
-        textDuracion = getArguments().getString("") ;
-        textNumObra = getArguments().getString("") ;
-        textLocalizacion = getArguments().getString("") ;
-        textHoraInicio = getArguments().getString("") ;
-        textHoraFin = getArguments().getString("") ;*/
-        //Ponemos los args en el textViev
+
+
+
+
+
+
+        System.out.println("ONCREATEVIEW: "+textNumObra+" - "+textTrabajador+" - "+textFecha+" - "+textDuracion+" - "+textLocalizacion+" - "+textHoraInicio+" - "+textHoraFin);
+        return v;
+    }
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        tViewTrabajador = (TextView) getActivity().findViewById(R.id.tVInformeTrabajador);
+        tViewFecha = (TextView) getActivity().findViewById(R.id.tVInformeFechaObra);
+        tViewDuracion = (TextView) getActivity().findViewById(R.id.tVInformeDuracion);
+        tViewNumObra = (TextView) getActivity().findViewById(R.id.tVInformeNumObra);
+        tViewLocalizacion = (TextView) getActivity().findViewById(R.id.tVInformeLocalizacion);
+        tViewHoraInicio = (TextView) getActivity().findViewById(R.id.tVInformeHoraInicio);
+        tViewHoraFin = (TextView) getActivity().findViewById(R.id.tVInformeHoraFin);
+
         tViewTrabajador.setText(textTrabajador);
         tViewFecha.setText(textFecha);
         tViewDuracion.setText(textDuracion);
@@ -98,11 +109,10 @@ public class InformeFragment extends Fragment {
         tViewHoraInicio.setText(textHoraInicio);
         tViewHoraFin.setText(textHoraFin);
 
-        return v;
-    }
 
+    }
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Activity context) {
         super.onAttach(context);
     }
 

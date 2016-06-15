@@ -1,5 +1,6 @@
 package com.fxapp.ambstudio;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,15 +30,13 @@ public class ListaFragment extends Fragment {
 
     ListFragmentListener mCallback;
 
-
-    public ListaFragment() {
-        // Required empty public constructor
+    public interface ListFragmentListener{
+        public void onListSelected(int position);
     }
 
 
-    //Generamos un interface que lo implementara el activity porque lo preguntamos en onAttach
-    public interface ListFragmentListener {
-        public void onListSelected(int position);
+    public ListaFragment() {
+        // Required empty public constructor
     }
 
     @Override
@@ -67,48 +66,39 @@ public class ListaFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1,listaInformes);
-        //listView=(ListView)v.findViewById(R.id.listView);
         listView=(ListView)getView().findViewById(R.id.listView);
         listView.setOnItemClickListener(new nuestroListener());
         listView.setAdapter(adapter);
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
         try {
-            mCallback = (ListFragmentListener) context;
+            mCallback = (ListFragmentListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement OnHeadlineSelectedListener");
+            throw new ClassCastException(activity.toString()
+                    + " must implement ListFragmentListener");
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mCallback = null;
     }
 
-
+    //Implementando el listener para nuestro listView
+    //INNER CLASS
     //le pasamos los datos al activity
     private class nuestroListener implements AdapterView.OnItemClickListener {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
             //String de la posicion clickada
-            //String item = (String) parent.getItemAtPosition(position);
-             String txt="PASAMOSDATOS";
-            System.out.println(txt+"..."+position);
-            Toast.makeText(getActivity().getApplicationContext(),"La posición del ListView en el listenneer: "+position+"... "+txt,Toast.LENGTH_LONG).show();
 
-            //ponemos en posicion el id de la base de datos depende d la pos  clickada
-            position=position+1;
-            System.out.println(txt + "..."+position);
             //Paso de informacion
-            //mCallback.onListSelected(position);
-
-
-
-
+            mCallback.onListSelected(position);
         }
     }
 

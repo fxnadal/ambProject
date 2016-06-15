@@ -118,7 +118,7 @@ public class MyDBInformesAdapter {
         //Recorremos el cursor
         cursor.moveToPosition(id);
 
-        text = cursor.getString(1);
+        text = cursor.getString(2);
 
         return text;
     }
@@ -129,7 +129,7 @@ public class MyDBInformesAdapter {
         //Recorremos el cursor
         cursor.moveToPosition(id);
 
-        text = cursor.getString(1);
+        text = cursor.getString(3);
 
         return text;
     }
@@ -140,7 +140,7 @@ public class MyDBInformesAdapter {
         //Recorremos el cursor
         cursor.moveToPosition(id);
 
-        text = cursor.getString(1);
+        text = cursor.getString(0);
 
         return text;
     }
@@ -151,7 +151,7 @@ public class MyDBInformesAdapter {
         //Recorremos el cursor
         cursor.moveToPosition(id);
 
-        text = cursor.getString(1);
+        text = cursor.getString(4);
 
         return text;
     }
@@ -162,7 +162,7 @@ public class MyDBInformesAdapter {
         //Recorremos el cursor
         cursor.moveToPosition(id);
 
-        text = cursor.getString(1);
+        text = cursor.getString(5);
 
         return text;
     }
@@ -173,7 +173,7 @@ public class MyDBInformesAdapter {
         //Recorremos el cursor
         cursor.moveToPosition(id);
 
-        text = cursor.getString(1);
+        text = cursor.getString(6);
 
         return text;
     }

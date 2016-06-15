@@ -48,13 +48,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeNumObra"
         android:layout_alignTop="@+id/textView99"
         android:layout_toEndOf="@+id/textView99"
         android:textSize="25dp"
         android:layout_marginLeft="15dp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:enabled="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,7 +72,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeHoraFin"
         android:layout_alignTop="@+id/textView5"
         android:layout_toEndOf="@+id/textView5"
@@ -96,7 +95,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeFechaObra"
         android:layout_alignTop="@+id/textView7"
         android:layout_toEndOf="@+id/textView7"
@@ -120,13 +118,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeTrabajador"
         android:layout_alignTop="@+id/textView9"
         android:layout_toEndOf="@+id/textView9"
         android:textSize="25dp"
         android:layout_marginLeft="15dp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:enabled="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -144,7 +142,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeDuracion"
         android:layout_alignTop="@+id/textView11"
         android:layout_toEndOf="@+id/textView11"
@@ -168,7 +165,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeHoraInicio"
         android:layout_alignTop="@+id/textView13"
         android:layout_toEndOf="@+id/textView13"
@@ -192,7 +188,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
         android:id="@+id/tVInformeLocalizacion"
         android:textSize="25dp"
         android:layout_marginLeft="15dp"

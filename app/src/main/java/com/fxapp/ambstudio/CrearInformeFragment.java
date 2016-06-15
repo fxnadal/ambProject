@@ -1,13 +1,19 @@
 package com.fxapp.ambstudio;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -21,7 +27,8 @@ import java.util.Date;
  * Use the {@link CrearInformeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CrearInformeFragment extends Fragment {
+public class CrearInformeFragment extends Fragment implements View.OnClickListener{
+
     // TODO: CALENDARIO..SACAMOS LA FECHA DE HOY
     final Calendar calendar=Calendar.getInstance();
     int hora = calendar.get(calendar.HOUR_OF_DAY);
@@ -35,7 +42,20 @@ public class CrearInformeFragment extends Fragment {
     TextView textViewDia;
     TextView textViewMes;
     TextView textViewAnyo;
+    EditText editTextTrabajador;
+    EditText editTextDuracion;
+    EditText editTextLocalizacion;
+    TimePicker timePickerHoraInicio;
+    TimePicker timePickerHoraFin;
+    Button boton;
 
+
+    private String textTrabajador;
+    private String textFecha;
+    private String textDuracion;
+    private String textLocalizacion;
+    private String textHoraInicio;
+    private String textHoraFin;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -85,6 +105,12 @@ public class CrearInformeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_crear_informe, container, false);
+        //ASIGNAMOS VALORES
+        editTextDuracion=(EditText) view.findViewById(R.id.editTextDuracion);
+        editTextTrabajador=(EditText) view.findViewById(R.id.editTextTrabajador);
+        editTextLocalizacion=(EditText) view.findViewById(R.id.editTextLocalizacion2);
+        timePickerHoraInicio=(TimePicker) view.findViewById(R.id.timePicker);
+        timePickerHoraFin=(TimePicker) view.findViewById(R.id.timePicker2);
 
         //RELLENAMOS LA FECHA
         textViewDia=(TextView) view.findViewById(R.id.textViewDia);
@@ -94,24 +120,44 @@ public class CrearInformeFragment extends Fragment {
         textViewAnyo=(TextView) view.findViewById(R.id.textViewAnyo);
         textViewAnyo.setText(String.valueOf(anyo));
 
+        // Implementamos el listener del boton
+
+
+
         return view;///*/
 
     }
+    public void onActivityCreated (Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+        boton =(Button) getActivity().findViewById(R.id.botonGuardar);
+        boton.setOnClickListener(this);
+    }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    @TargetApi(Build.VERSION_CODES.M)
+    public void onClick(View v) {
+
+        textTrabajador=editTextTrabajador.getText().toString();
+        textFecha=dia+"/"+mes+"/"+anyo;
+        textDuracion=editTextDuracion.getText().toString();
+        textLocalizacion=editTextLocalizacion.getText().toString();
+        textHoraInicio=timePickerHoraInicio.getCurrentHour().toString()+":"+timePickerHoraInicio.getCurrentMinute().toString();
+        textHoraFin=timePickerHoraFin.getCurrentHour().toString()+":"+timePickerHoraFin.getCurrentMinute().toString();
+
+        //Llamamos al callback
+        //Este a su vez pasa el mensaje al activity
+        mListener.onFragmentInteraction(textTrabajador, textFecha, textDuracion,
+                textLocalizacion, textHoraInicio, textHoraFin);
+        System.err.println(textTrabajador+" : "+ textFecha+" : "+ textDuracion+" : "+
+                textLocalizacion+" : "+ textHoraInicio+" : "+ textHoraFin);
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) activity;
         } else {
-            throw new RuntimeException(context.toString()
+            throw new RuntimeException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
     }
@@ -123,17 +169,12 @@ public class CrearInformeFragment extends Fragment {
     }
 
     /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
+     * ESTE ES EL INTERFAZ QUE EL ACTIVITY SUPERIOR DEBE IMPLEMENTAR
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String trabajador, String fecha, String duracion,
+                                   String localizacion, String horaInicio, String horaFin);
+
+
     }
 }

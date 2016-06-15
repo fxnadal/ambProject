@@ -11,9 +11,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity  {
+public class MainActivity extends Activity implements ListaFragment.ListFragmentListener,CrearInformeFragment.OnFragmentInteractionListener {
 
-    private ListaFragment listaFragment=new ListaFragment();
     private MyDBInformesAdapter dbAdapter;
 
     @Override
@@ -23,22 +22,19 @@ public class MainActivity extends Activity  {
 
         if (findViewById(R.id.fragment_container_main) !=null){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
-
         }
 
         final Button boton1 = (Button) findViewById(R.id.bMenu1);
         boton1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int id=1;
-                //if(){
+                ListaFragment listaFragment=new ListaFragment();
                 //Obtener el arrayList
                 ArrayList arrayList=rellenarArrayListListView();
                 //Abrir fragment o activity segun dispositivo
                 if (findViewById(R.id.fragment_container_main) != null) {
                     //Pasamos el arrayList al fragment
                     Bundle args=new Bundle();
-                    System.out.println("Esta vacia?...................................................."+arrayList.isEmpty());
                     args.putStringArrayList(listaFragment.ARRAYLIST,arrayList);
                     listaFragment.setArguments(args);
                     //Capturamos el cargador dinamico
@@ -76,12 +72,6 @@ public class MainActivity extends Activity  {
                     llamada.putExtra("id", id);
                     startActivity(llamada);
                 }
-
-
-
-
-
-
             }
         });
 
@@ -103,28 +93,37 @@ public class MainActivity extends Activity  {
     public ArrayList rellenarArrayListListView(){
         dbAdapter=new MyDBInformesAdapter(this);
         dbAdapter.open();
-        //INSERT PARA PROBAR EN OTRO DISPOSITIVO
-        /*dbAdapter.insertarInforme("trabajador", "fecha", "duracion", "localizacion", "hora inicio", "hora final");
-        dbAdapter.insertarInforme("trabajador","fecha","duracion","localizacion","hora inicio","hora final");
-        dbAdapter.insertarInforme("trabajador","fecha","duracion","localizacion","hora inicio","hora final");
-        dbAdapter.insertarInforme("trabajador","fecha","duracion","localizacion","hora inicio","hora final");
-        dbAdapter.insertarInforme("a2","b2","c2","d2","e2","f2");
-        dbAdapter.insertarInforme("a3","b3","c3","d3","e3","f3");*/
         ArrayList<String> arrayList = dbAdapter.recuperarListaListViewInformes();
         System.err.println("la lista va vacia desde la base de datos........?..................." + arrayList.isEmpty());
         return arrayList;
-
     }
 
-    public void mostrarInforme(){
+    @Override
+    public void onListSelected(int position) {
+        System.out.println("..." + position);
         int idF=4;
+        //Se saca la consulta del informe de la base de datos
+        dbAdapter=new MyDBInformesAdapter(this);
+        dbAdapter.open();
+        String informeTrabajador=dbAdapter.recuperarTrabajador(position);
+        String informeNumObra=dbAdapter.recuperarNumObra(position);
+        String informeFecha=dbAdapter.recuperarFecha(position);
+        String informeDuracion=dbAdapter.recuperarDuracion(position);
+        String informeLocalizacion=dbAdapter.recuperarLocalizacion(position);
+        String informeHoraInicio=dbAdapter.recuperarHoraInicio(position);
+        String informeHoraFin=dbAdapter.recuperarHoraFin(position);
+
         if (findViewById(R.id.fragment_container_main) != null) {
             InformeFragment informeFragment=new InformeFragment();
-            /*/Pasamos el arrayList al fragment
             Bundle args=new Bundle();
-            System.out.println("Esta vacia?...................................................."+arrayList.isEmpty());
-            args.putStringArrayList(listaFragment.ARRAYLIST,arrayList);
-            listaFragment.setArguments(args);*/
+            args.putString(informeFragment.ARG_TRABAJADOR, informeTrabajador);
+            args.putString(informeFragment.ARG_NUM_OBRA, informeNumObra);
+            args.putString(informeFragment.ARG_FECHA_OBRA, informeFecha);
+            args.putString(informeFragment.ARG_DURACION, informeDuracion);
+            args.putString(informeFragment.ARG_LOCALIZACION, informeLocalizacion);
+            args.putString(informeFragment.ARG_HORA_INICIO, informeHoraInicio);
+            args.putString(informeFragment.ARG_HORA_FIN, informeHoraFin);
+            informeFragment.setArguments(args);
             //Capturamos el cargador dinamico
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             //Reemplazamos la noticia
@@ -133,16 +132,27 @@ public class MainActivity extends Activity  {
             //Realizamos el reemplazo
             transaction.commit();
         } else {
-
+            //Pasar los datos al activity para que lo pase al fragment
             Intent llamada = new Intent(MainActivity.this, Main2Activity.class);
             llamada.putExtra("id", idF);
+            llamada.putExtra("informeTrabajador", informeTrabajador);
+            llamada.putExtra("informeNumObra", informeNumObra);
+            llamada.putExtra("informeFecha", informeFecha);
+            llamada.putExtra("informeDuracion", informeDuracion);
+            llamada.putExtra("informeLocalizacion", informeLocalizacion);
+            llamada.putExtra("informeHoraInicio", informeHoraInicio);
+            llamada.putExtra("informeHoraFin", informeHoraFin);
             //llamada.putStringArrayListExtra("arrayList", arrayList);//Pasar la lista al activity para que lo pase al fragment
             startActivity(llamada);
         }
     }
 
 
-
-
-
+    @Override
+    public void onFragmentInteraction(String trabajador, String fecha, String duracion, String localizacion, String horaInicio, String horaFin) {
+        dbAdapter=new MyDBInformesAdapter(this);
+        dbAdapter.open();
+        //INSERT PARA PROBAR EN OTRO DISPOSITIVO
+        dbAdapter.insertarInforme(trabajador, fecha, duracion, localizacion, horaInicio, horaFin);
+    }
 }

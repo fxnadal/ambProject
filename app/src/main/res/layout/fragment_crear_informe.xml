@@ -30,20 +30,21 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNumObra"
-        android:width="60dp"
-        android:layout_alignTop="@+id/textView99"
-        android:layout_toEndOf="@+id/textView99" />
+        android:id="@+id/editTextLocalizacion2"
+        android:width="110dp"
+        android:layout_alignBottom="@+id/editTextLocalizacion"
+        android:layout_toEndOf="@+id/editTextLocalizacion"
+        android:layout_marginLeft="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nº de obra:"
-        android:id="@+id/textView99"
-        android:layout_marginTop="52dp"
+        android:text="Localización:"
+        android:id="@+id/editTextLocalizacion"
         android:textColor="#000000"
-        android:layout_below="@+id/txtTitle"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/textViewDuracion"
+        android:layout_alignStart="@+id/textViewDuracion"
+        android:layout_marginTop="31dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,17 +52,18 @@
         android:text="Trabajador:"
         android:id="@+id/textViewTrabajador"
         android:textColor="#000000"
-        android:layout_below="@+id/txtNumObra"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_marginTop="33dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextTrabajador"
-        android:width="90dp"
-        android:layout_below="@+id/textViewTrabajador"
-        android:layout_alignStart="@+id/textViewTrabajador" />
+        android:width="110dp"
+        android:layout_alignBottom="@+id/textViewTrabajador"
+        android:layout_toEndOf="@+id/textViewTrabajador"
+        android:layout_marginLeft="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,8 +71,9 @@
         android:text="Fecha obra:"
         android:id="@+id/textView3"
         android:textColor="#000000"
-        android:layout_alignTop="@+id/txtNumObra"
-        android:layout_toEndOf="@+id/txtNumObra" />
+        android:layout_below="@+id/txtTitle"
+        android:layout_alignStart="@+id/txtTitle"
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,17 +108,18 @@
         android:text="Duración estimada:"
         android:id="@+id/textViewDuracion"
         android:textColor="#000000"
-        android:layout_above="@+id/editTextTrabajador"
-        android:layout_toEndOf="@+id/txtNumObra" />
+        android:layout_below="@+id/textViewTrabajador"
+        android:layout_alignStart="@+id/textViewTrabajador"
+        android:layout_marginTop="33dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextDuracion"
-        android:width="60dp"
+        android:width="110dp"
         android:layout_marginLeft="15dp"
-        android:layout_alignTop="@+id/editTextTrabajador"
-        android:layout_alignStart="@+id/textViewDuracion" />
+        android:layout_alignBottom="@+id/textViewDuracion"
+        android:layout_toEndOf="@+id/textViewDuracion" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -123,9 +127,9 @@
         android:text="Hora inicio de obra:"
         android:id="@+id/textViewHoraInicio"
         android:textColor="#000000"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/editTextTrabajador"
-        android:layout_alignStart="@+id/editTextTrabajador" />
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/editTextLocalizacion2"
+        android:layout_alignStart="@+id/editTextLocalizacion" />
 
     <TextView
         android:layout_width="wrap_content"
